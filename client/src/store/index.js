@@ -19,6 +19,18 @@ export default new Vuex.Store({
     loginUser: (state) => state.loginUser,
     isAuthenticated: (state) => state.isAuthenticated,
     todoList: (state) => state.todoList,
+    // isCompletedTodoList: (state, getters) => {
+    //   // console.log(state)
+    //   // console.log(getters.todoList)
+    //   // todoListの中の一つ一つのtodoListのisCompletedがtrueのリストを表示させたい
+    //   const result = getters.todoList.filter(todo => {
+    //     // console.log({...todo})
+    //     return todo.isCompleted === 1
+    //   })
+    //   return result
+    //   console.log(result);
+    // }
+    isCompletedTodoList: (state, getters) => getters.todoList.filter(todo => todo.isCompleted === 1)
   },
   mutations: {
     updateLoginUser(state, user) {

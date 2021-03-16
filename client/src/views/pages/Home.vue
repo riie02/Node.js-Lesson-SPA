@@ -7,7 +7,7 @@
     <template>
       <div class="list-status">
         <p>総件数: {{ todoList.length }} </p>
-        <p>完了済み: </p>
+        <p>完了済み: {{ isCompletedTodoList.length }} </p>
       </div>
     </template>
     <template>
@@ -51,14 +51,10 @@ export default {
   computed: {
     ...mapGetters([
       'todoList',
-    ]),
+      'isCompletedTodoList'
+    ])
   },
-  getters: {
-    todoList: state => {
-      return state.todoList
-    },
-  },
-};
+}
 </script>
 
 <style lang="scss" scoped>
