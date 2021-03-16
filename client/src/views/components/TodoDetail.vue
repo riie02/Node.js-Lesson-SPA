@@ -40,6 +40,7 @@
         <button
           type="button"
           class="button button-delete"
+          @click="dataDelete"
         >
           削除
         </button>
@@ -49,6 +50,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+import { mapActions } from 'vuex'
 export default {
   props: {
     todo: {
@@ -75,6 +78,14 @@ export default {
       this.todo.isCompleted = !this.todo.isCompleted;
       this.$emit('update-completed', todo);
     },
+    async dataDelete() {
+      const todo = await axios.delete(`/api/todo/${this.todo.id}`);
+      this.getTodoList()
+    },
+    ...mapActions({
+      getTodoList: 'updateTodoList',
+    }),
+
   },
 };
 </script>
