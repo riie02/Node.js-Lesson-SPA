@@ -7,9 +7,7 @@
         name="title"
         autocomplete="off"
         placeholder="Todoのタイトルを入力してね。"
-        :value="form.title"
-        @input="form.title = $event.target.value"
-
+        v-model="form.title"
         >
     </div>
     <div class="register-input">
@@ -18,8 +16,7 @@
         name="content"
         rows="3"
         placeholder="Todoの内容を入力してね。"
-        :value="form.content"
-        @input="form.content = $event.target.value"
+        v-model="form.content"
         ></textarea>
     </div>
     <div class="register-submit">
