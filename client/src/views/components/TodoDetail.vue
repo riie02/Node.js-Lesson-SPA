@@ -81,7 +81,6 @@ export default {
     },
     async dataDelete() {
       const todo = await axios.delete(`/api/todo/${this.todo.id}`);
-      console.log(this)
       this.getTodoList()
     },
     ...mapActions({

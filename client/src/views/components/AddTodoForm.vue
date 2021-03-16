@@ -48,12 +48,11 @@ export default {
   },
   methods: {
     async addCompleted() {
-      console.log({...this.form})
+      // console.log({...this.form})
       const todo = await axios.post('/api/todo', {
         title: this.form.title,
         content: this.form.content,
       });
-      console.log(todo)
       this.getTodoList()
       this.form.title = ""
       this.form.content = ""
