@@ -6,7 +6,7 @@
     </template>
     <template>
       <div class="list-status">
-        <p>総件数: </p>
+        <p>総件数: {{ todoList.length }} </p>
         <p>完了済み: </p>
       </div>
     </template>
@@ -52,6 +52,11 @@ export default {
     ...mapGetters([
       'todoList',
     ]),
+  },
+  getters: {
+    todoList: state => {
+      return state.todoList
+    },
   },
 };
 </script>
