@@ -41,7 +41,6 @@
           type="button"
           class="button button-delete"
           @click="dataDelete"
-          v-on:click="dataDelete()"
         >
           削除
         </button>
