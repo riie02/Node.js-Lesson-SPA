@@ -36,8 +36,8 @@ export default new Vuex.Store({
     //   const foo = getters.userList
     // }
     userList: (state) => {
-      console.log(state)
-      console.log(state.userList)
+      // console.log(state)
+      // console.log(state.userList)
       return state.userList;
     }
   },
@@ -109,7 +109,6 @@ export default new Vuex.Store({
       const userList = await axios
         .get(`${BASE_URL}/user/all`)
         .then((res) => res.data);
-        console.log(userList);
       commit('updateUserList', userList);
     },
   },
