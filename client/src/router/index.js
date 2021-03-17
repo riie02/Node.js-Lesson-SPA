@@ -40,8 +40,8 @@ const routes = [
     ],
   },
   {
-    path: '/todo',
-    name: '/todo',
+    path: '/userList',
+    name: 'userList',
     component: UserList,
   }
 ];
