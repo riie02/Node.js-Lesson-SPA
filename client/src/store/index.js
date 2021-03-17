@@ -14,6 +14,7 @@ export default new Vuex.Store({
     },
     isAuthenticated: false,
     todoList: [],
+    userList: [],
   },
   getters: {
     loginUser: (state) => state.loginUser,
@@ -30,7 +31,15 @@ export default new Vuex.Store({
     //   return result
     //   console.log(result);
     // }
-    isCompletedTodoList: (state, getters) => getters.todoList.filter(todo => todo.isCompleted === 1)
+    isCompletedTodoList: (state, getters) => getters.todoList.filter(todo => todo.isCompleted === 1),
+    // addUserList: (state, getters) => {
+    //   const foo = getters.userList
+    // }
+    userList: (state) => {
+      // console.log(state)
+      // console.log(state.userList)
+      return state.userList;
+    }
   },
   mutations: {
     updateLoginUser(state, user) {
@@ -47,6 +56,9 @@ export default new Vuex.Store({
     },
     updateTodoList(state, todoList) {
       state.todoList = todoList;
+    },
+    updateUserList(state, userList) {
+      state.userList = userList;
     },
   },
   actions: {
@@ -92,6 +104,12 @@ export default new Vuex.Store({
     async updateTodo({ dispatch }, todo) {
       await axios.put(`${BASE_URL}/todo/${todo.id}`, todo);
       dispatch('updateTodoList');
+    },
+    async updateUserList({ commit }) {
+      const userList = await axios
+        .get(`${BASE_URL}/user/all`)
+        .then((res) => res.data);
+      commit('updateUserList', userList);
     },
   },
 });

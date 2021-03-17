@@ -3,6 +3,8 @@ import VueRouter from 'vue-router';
 import Login from '@/pages/Login.vue';
 import Home from '@/pages/Home.vue';
 import User from '@/pages/User.vue';
+import UserList from '@/pages/UserList.vue';
+
 import UserHome from '@/components/UserHome.vue';
 import store from '../store';
 
@@ -37,6 +39,11 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/userList',
+    name: 'userList',
+    component: UserList,
+  }
 ];
 
 const router = new VueRouter({
