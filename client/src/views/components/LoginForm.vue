@@ -36,25 +36,11 @@ export default {
         username: this.user.username,
         password: this.user.password,
       };
-      this.$store.dispatch('updateLoginUser', param);
-    },
-  },
-  computed: {
-    ...mapState([
-      'loginUser',
-      'isAuthenticated',
-    ]),
-  },
-  watch: {
-    isAuthenticated() {
-      if (this.isAuthenticated) {
-        this.$router.push({ name: 'home' });
-      }
+      this.$emit('updateLoginUser', param);
     },
   },
 };
 </script>
-
 
 <style lang="scss" scoped>
 .login-form {
