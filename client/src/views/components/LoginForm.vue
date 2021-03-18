@@ -39,11 +39,6 @@ export default {
       this.$emit('updateLoginUser', param);
     },
   },
-  computed: {
-    ...mapState([
-      'loginUser',
-    ]),
-  },
 };
 </script>
 
