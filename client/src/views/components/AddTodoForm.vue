@@ -55,7 +55,7 @@ export default {
       this.form.content = ""
 
     },
-    ...mapActions({
+    ...mapActions('todo',{
       getTodoList: 'updateTodoList',
     }),
   }

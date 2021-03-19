@@ -25,8 +25,8 @@ export default {
   data() {
     return {
       user: {
-        username: '',
-        password: '',
+        username: 'user1',
+        password: 'sugoi_pw',
       },
     };
   },
@@ -37,6 +37,7 @@ export default {
         password: this.user.password,
       };
       this.$emit('updateLoginUser', param);
+      console.log(this.$store)
     },
   },
 };

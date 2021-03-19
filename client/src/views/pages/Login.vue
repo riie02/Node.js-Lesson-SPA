@@ -13,13 +13,13 @@ export default {
     MyLoginForm,
   },
   methods: {
-    ...mapActions([
+    ...mapActions('user', [
       'updateLoginUser',
       'updateIsAuthenticated',
     ]),
   },
   computed: {
-    ...mapState([
+    ...mapState('user',[
       'loginUser',
       'isAuthenticated',
     ]),
