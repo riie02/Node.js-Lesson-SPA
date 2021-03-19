@@ -26,12 +26,12 @@ export default {
     MyNavi
   },
   methods: {
-    ...mapActions('todo',{
+    ...mapActions('user',{
       getAllUser: 'updateUserList',
     }),
   },
   computed: {
-    ...mapGetters('todo',[
+    ...mapGetters('user',[
       'userList',
     ])
   },

@@ -53,13 +53,13 @@ const router = new VueRouter({
 
 router.beforeEach(async (to, from, next) => {
   // 初回アクセスの場合
-  if (to.name === 'user/login' && !from.name) {
+  if (to.name === 'login' && !from.name) {
 
     return next();
   }
 
   await store.dispatch('user/checkAuthenticated');
-  const { isAuthenticated } = store.getters['user/isAuthenticated'];
+  const isAuthenticated = store.getters['user/isAuthenticated'];
 
   // isPublic でない場合(=認証が必要な場合)、かつ、ログインしていない場合
   if (!to.meta.isPublic && !isAuthenticated) {
