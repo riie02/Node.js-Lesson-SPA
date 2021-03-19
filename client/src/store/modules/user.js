@@ -7,12 +7,14 @@ const state = () => ({
     userName: '',
     userId: null,
   },
-  isAuthenticated: false
+  isAuthenticated: false,
+  userList: []
 })
 
 const getters = {
   loginUser (state) { return state.loginUser},
-  isAuthenticated (state) { return state.isAuthenticated } ,
+  isAuthenticated (state) { return state.isAuthenticated },
+  userList (state){ return state.userList },
 }
 const mutations = {
   updateLoginUser(state, user) {
@@ -26,6 +28,9 @@ const mutations = {
   },
   updateIsAuthenticated(state, payload) {
     state.isAuthenticated = payload;
+  },
+  updateUserList(state, userList) {
+    state.userList = userList;
   },
 }
 
@@ -62,6 +67,12 @@ const actions = {
       commit('resetLoginUser');
       commit('updateIsAuthenticated', false);
     }
+  },
+  async updateUserList({ commit }) {
+    const userList = await axios
+      .get(`${BASE_URL}/user/all`)
+      .then((res) => res.data);
+    commit('updateUserList', userList);
   },
 }
 
