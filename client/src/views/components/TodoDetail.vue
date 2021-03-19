@@ -82,7 +82,7 @@ export default {
       const todo = await axios.delete(`/api/todo/${this.todo.id}`);
       this.getTodoList()
     },
-    ...mapActions({
+    ...mapActions('todo',{
       getTodoList: 'updateTodoList',
     }),
 
