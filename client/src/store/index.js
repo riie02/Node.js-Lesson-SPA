@@ -1,12 +1,17 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
+import { todo, user } from './modules'
 
 const BASE_URL = 'http://localhost:8080/api';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  modules:{
+    todo,
+    user,
+  },
   state: {
     loginUser: {
       userName: '',
