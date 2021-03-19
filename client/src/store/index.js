@@ -31,15 +31,13 @@ export default new Vuex.Store({
     //   return result
     //   console.log(result);
     // }
-    isCompletedTodoList: (state, getters) => getters.todoList.filter(todo => todo.isCompleted === 1),
+    isCompletedTodoList: (getters) => getters.todoList.filter((todo) => todo.isCompleted === 1),
     // addUserList: (state, getters) => {
     //   const foo = getters.userList
     // }
-    userList: (state) => {
+    userList: (state) => state.userList,
       // console.log(state)
       // console.log(state.userList)
-      return state.userList;
-    }
   },
   mutations: {
     updateLoginUser(state, user) {
@@ -95,12 +93,43 @@ export default new Vuex.Store({
         commit('updateIsAuthenticated', false);
       }
     },
+
     async updateTodoList({ commit }) {
       const todoList = await axios
         .get(`${BASE_URL}/todo`)
         .then((res) => res.data);
       commit('updateTodoList', todoList);
     },
+    // async updateTodoList({ commit }) {
+    //   const todoList = function() {
+    //     return new Promise(function(resolve){
+    //       get(`${BASE_URL}/todo`),
+    //       then((res) => res.data),
+    //       commit('updateTodoList', todoList),
+    //       console.log(todoList)
+    //       resolve()
+    //     })
+    //   // todoList();
+    //   //   .then()
+    //   }
+    //   const onFulfilled = () => {
+    //     console.log("resolveされたときに呼ばれる");
+    //   };
+    //   todoList.then(onFulfilled, dat);
+    // },
+    // updateTodoList(todoList)
+    //   .then((data) => {
+    //     console.log(data);
+    //     return updateTodoList(todoList);
+    // })
+    // async updateTodoList({ commit }) {
+    //   const promise = new Promise((resolve, reject) => {
+    //     get(`${BASE_URL}/todo`)
+    //     resolve((res) => res.dat, commit('updateTodoList', todoList))
+    //   })
+    //     // .get(`${BASE_URL}/todo`)
+    //     // .then((res) => res.data);
+    // },
     async updateTodo({ dispatch }, todo) {
       await axios.put(`${BASE_URL}/todo/${todo.id}`, todo);
       dispatch('updateTodoList');
