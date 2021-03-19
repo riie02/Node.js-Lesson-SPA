@@ -43,7 +43,7 @@ const routes = [
     path: '/userList',
     name: 'userList',
     component: UserList,
-  }
+  },
 ];
 
 const router = new VueRouter({
