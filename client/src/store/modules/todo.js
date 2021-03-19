@@ -4,21 +4,16 @@ const BASE_URL = 'http://localhost:8080/api';
 
 const state = () => ({
   todoList: [],
-  userList: [],
 })
 
 const getters = {
   todoList (state) { return state.todoList } ,
   isCompletedTodoList (getters) { return getters.todoList.filter((todo) => todo.isCompleted === 1)},
-  userList (state){ return state.userList },
 }
 
 const mutations = {
   updateTodoList(state, todoList) {
     state.todoList = todoList;
-  },
-  updateUserList(state, userList) {
-    state.userList = userList;
   },
 }
 
